@@ -7,6 +7,7 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -35,6 +36,14 @@
         .volume {
             width: 60px;
         }
+        .copy-button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -46,7 +55,9 @@
         </div>
         <input type="range" id="volume" class="volume" min="0" max="1" step="0.1" value="1">
     </div>
-    <audio id="audio" src="audio.mp3"></audio>
+    <audio id="audio" src="https://raw.githubusercontent.com/Memesoondev/For-win93-nyan/main/audio.mp3"></audio>
+    
+    <button class="copy-button" onclick="copyLink()">📋 انسخ الرابط</button>
     
     <script>
         const audio = document.getElementById('audio');
@@ -85,6 +96,13 @@
         volumeControl.addEventListener('input', (e) => {
             audio.volume = e.target.value;
         });
+
+        function copyLink() {
+            const link = "https://raw.githubusercontent.com/username/repository/main/audio.mp3";
+            navigator.clipboard.writeText(link).then(() => {
+                alert("تم نسخ الرابط!");
+            });
+        }
     </script>
 </body>
 </html>
